@@ -1,0 +1,55 @@
+
+
+{#添加信息页面#}
+{% extends 'base.html' %}
+
+{% block css %}
+     .top-text{
+            padding: 20px;
+            text-align: center;
+            font-size: 16;
+
+{% endblock %}
+
+{% block index %}
+
+    <div class="col-md-7">
+
+            <table class="table table-striped table table-hover">
+
+                <h4>有关作者的更多信息</h4>
+
+
+                {#表头#}
+                <thread>
+                    <tr>
+                        <th>序号</th>
+                        <th>名称</th>
+                        <th>出版日期</th>
+                        <th>价格</th>
+                        <th>出版商</th>
+                    </tr>
+                </thread>
+                {#表身#}
+                <tbody>
+                    {% for item in aut_more %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ item.title }}</td>
+                            <td>{{ item.pub_date|date:'Y-m-d' }}</td>
+                            <td>{{ item.price }}</td>
+                            <td>{{item.publish.pname }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div class="form-group">
+                <div class="text-center">
+                    <a href="/look/" class="btn btn-default ">返回</a>
+                </div>
+            </div>
+
+        </div>
+
+
+{% endblock %}
